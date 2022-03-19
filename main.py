@@ -5,6 +5,7 @@ from data.db_session import global_init
 from routes import jobs_blueprint, news_blueprint
 from resources import NewsListResource, NewsResource
 from resources.user_resourses import UsersResorses, UsersListResourses
+from resources.jobs_resources import JobsResorses, JobsListResourses
 
 app = Flask(__name__)
 api = Api(app)
@@ -23,6 +24,8 @@ def main():
     api.add_resource(NewsListResource, "/api/v2/news")
     api.add_resource(UsersListResourses, '/api/v2/users')
     api.add_resource(UsersResorses, '/api/v2/users/<int:user_id>')
+    api.add_resource(JobsListResourses, '/api/v2/jobs')
+    api.add_resource(JobsResorses, '/api/v2/jobs/<int:job_id>')
     app.run()
 
 
